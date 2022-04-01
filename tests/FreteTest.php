@@ -38,6 +38,8 @@ class FreteTest extends BaseTesting
         $this->assertEquals(200, $resposta->getStatusCode());
 
         $dataBody = json_decode($resposta->getBody()->getContents());
+        $this->assertGreaterThan(0, $dataBody->frete[0]->vltotal);
+
         $this->assertEmpty(json_last_error());
 
     }
