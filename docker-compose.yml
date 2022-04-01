@@ -1,0 +1,18 @@
+version: '3.9'
+
+networks:
+  php-pds.network:
+    driver: bridge
+
+services:
+  webserver:
+    build: ./docker
+    container_name: php-pds.webserver
+    tty: true
+    volumes:
+      - ./:/app
+    networks:
+      - php-pds.network
+    ports:
+      - "80:80"
+      - "443:443"
