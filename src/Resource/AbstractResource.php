@@ -27,6 +27,7 @@ class AbstractResource
         $this->token = $token;
         $this->http_client = new Client([
             "base_uri" => Jadlog::BASE_URI,
+            "connect_timeout" => 30,
             "headers" => array(
                 "Authorization" => sprintf("Bearer %s", $token),
                 "Content-Type" => "application/json"
